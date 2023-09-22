@@ -1,8 +1,8 @@
 import { CiLocationOn,CiBadgeDollar } from "react-icons/ci";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
-    const navigate = useNavigate()
+
   const {
     id,
     logo,
@@ -26,15 +26,15 @@ const Job = ({ job }) => {
         <h2 className="card-title text-[#474747] text-xl">{job_title}</h2>
         <p className="flex items-center gap-2 text-lg text-[#757575] font-semibold">{company_name}</p>
         <div className="flex gap-3">
-            <button className="font-bold py-2 px-5 border border-[#7E90FE] text-[#7E90FE] rounded">{remote_or_onsite}</button>
-            <button className="font-bold py-2 px-5 border border-[#7E90FE] text-[#7E90FE] rounded">{job_type}</button>
+            <button className="font-bold py-2 px-5 border border-slate-800 text-slate-700 rounded">{remote_or_onsite}</button>
+            <button className="font-bold py-2 px-5 border border-slate-800 text-slate-700 rounded">{job_type}</button>
         </div>
         <div className="flex gap-6">
             <h3 className="flex items-center gap-2 text-lg text-[#757575] font-semibold"><CiLocationOn className="font-semibold"/>{location}</h3>
             <h3 className="flex items-center gap-2 text-lg text-[#757575] font-semibold"><CiBadgeDollar/>{salary}</h3>
         </div>
         <div className="card-actions">
-          <button onClick={() => navigate(`/job/${id}`)} className="btn btn-primary">View Details</button>
+          <Link to={`/job/${id}`}><button className="btn btn-neutral">View Details</button></Link>
         </div>
       </div>
     </div>
